@@ -30,6 +30,15 @@ describe("bmpTrans", function() {
       });
     });
   });
+  describe("invert", function() {
+    var buffer;
+    beforeEach(function(done) {
+      buffer = new Buffer("000000743f3f000000743f3f743f3f000000743f3f", "hex");
+      done();
+    });
+    it("should take a Buffer of hex values and, starting and ending at given points, convert them to their color inverse", function() {
+      bmpTrans.invert(buffer, 0, 30);
+      expect(buffer).to.deep.equal(new Buffer("ffffff8bc0c0ffffff8bc0c08bc0c0ffffff8bc0c0", "hex"))
+    });
+  })
 });
-
-{};
