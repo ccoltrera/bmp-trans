@@ -16,7 +16,7 @@ describe("bmpTrans", function() {
           expect(bmpTrans.checkBMP(data)).to.deep.equal({
           start: 54,
           end: 30054,
-          colorSpec: 2
+          colorSpec: 3
         });
         done();
       });
