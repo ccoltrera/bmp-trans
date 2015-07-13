@@ -3,6 +3,7 @@
 var gulp = require("gulp");
 var mocha = require("gulp-mocha");
 var jshint = require("gulp-jshint");
+var jscs = require("gulp-jscs");
 
 gulp.task("default", ["watch"]);
 
@@ -18,5 +19,10 @@ gulp.task("lint", function() {
 });
 
 gulp.task("watch", function(){
-  gulp.watch(["./*.js", "./lib/*.js", "./test/*.js"], ["test", "lint"]);
+  gulp.watch(["./*.js", "./lib/*.js", "./test/*.js"], ["test", "lint", "jscs"]);
+});
+
+gulp.task("jscs", function() {
+  return gulp.src(["./*.js", "./lib/*.js", "./test/*.js"])
+              .pipe(jscs());
 });

@@ -12,7 +12,9 @@
   "author": "Colin Coltrera",
   "license": "MIT",
   "devDependencies": {
+    "gulp-jscs": "^1.6.0",
     "gulp-jshint": "^1.11.2",
-    "gulp-mocha": "^2.1.2"
+    "gulp-mocha": "^2.1.2",
+    "jscs": "^1.13.1"
   }
 }
