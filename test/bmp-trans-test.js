@@ -11,22 +11,24 @@ describe("bmpTrans", function() {
         expect(bmpTrans.checkBMP(data)).to.deep.equal(null);
       });
     });
-    it("should return an object. If no palette data, return .start as 54, .end as the length of the data, and .colorSpec as 3", function() {
+    it("should return an object. If no palette data, return .start as 54, .end as the length of the data, and .colorSpec as 3", function(done) {
       fs.readFile("./bmps/non-palette-bitmap.bmp", function(error, data) {
-        expect(bmpTrans.checkBMP(data)).to.deep.equal({
-        start: 54,
-        end: 30054,
-        colorSpec: 3
-       });
+          expect(bmpTrans.checkBMP(data)).to.deep.equal({
+          start: 54,
+          end: 30054,
+          colorSpec: 2
+        });
+        done();
       });
     });
-    it("should return an object. If palette data, return .start as 54, .end as img data offset, and .colorSpec as 4", function() {
+    it("should return an object. If palette data, return .start as 54, .end as img data offset, and .colorSpec as 4", function(done) {
       fs.readFile("./bmps/palette-bitmap.bmp", function(error, data) {
         expect(bmpTrans.checkBMP(data)).to.deep.equal({
-        start: 54,
-        end: 1078,
-        colorSpec: 4
-       });
+          start: 54,
+          end: 1078,
+          colorSpec: 4
+        });
+        done();
       });
     });
   });
